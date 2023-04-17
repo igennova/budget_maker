@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import "./expense.css";
 
 function ExpenseItem(props) {
-  const exdate=new Date(2023,3,10);
-  const extitle="lucky";
-  const amount=1000;
+  const month=props.date.toLocaleString("en-UK",{month:"long"}) ;
+  const day=props.date.toLocaleString("en-UK",{day:"2-digit"});
+  const year=props.date.getFullYear();
+  
 
   return (
     <div className="expense-item">
-      <div>{props.date.toISOString()}</div>
+      <div>{month}</div>
+      <p>{day}</p>{"\n"}
+      <div>{year}</div>
       <div className="expense-item__description">
         <h2>{props.title}</h2>
       </div>
